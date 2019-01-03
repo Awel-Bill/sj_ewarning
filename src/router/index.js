@@ -19,6 +19,7 @@ import Night from '@/components/early/earlytabs/night'
 import Yesterday from '@/components/history/historytabs/yesterday'
 import LastWeek from '@/components/history/historytabs/lastweek'
 import LastMonth from '@/components/history/historytabs/lastmonth'
+
 //三级
 import HistorySpread from '@/components/history/historytabs/historywarninglinkstabs/historyspread'
 import HistoryHighArea from '@/components/history/historytabs/historywarninglinkstabs/historyhigharea'
@@ -27,33 +28,32 @@ import HistoryHighCrossing from '@/components/history/historytabs/historywarning
 import Weather from '@/components/history/historytabs/historywarninglinkstabs/weather'
 import Vehicle from '@/components/history/historytabs/historywarninglinkstabs/vehicle'
 
-Vue.use(Router)
+Vue.use(Router);
 
 export const RouterList = [{
-        path: '/',
-        name: 'Index',
-        component: Index
-
-    },
+    path: '/',
+    name: 'Index',
+    component: Index
+},
     {
         path: '/todayWarning',
         name: 'todayWarning',
         component: TodayWarning,
         redirect: '/todayWarning/todayspread',
         children: [{
-            path: '/todayWarning/todayspread',
+            path: 'todayspread',
             name: 'todaySpread',
             component: TodaySpread,
         }, {
-            path: '/todayWarning/todayhigharea',
+            path: 'todayhigharea',
             name: 'todayhighArea',
             component: TodayHighArea,
         }, {
-            path: '/todayWarning/todayhighroad',
+            path: 'todayhighroad',
             name: 'todayhighRoad',
             component: TodayHighRoad,
         }, {
-            path: '/todayWarning/todayhighcrossing',
+            path: 'todayhighcrossing',
             name: 'todayhighCrossing',
             component: TodayHighCrossing,
         }]
@@ -64,23 +64,23 @@ export const RouterList = [{
         component: EarlyWarning,
         redirect: '/earlyWarning/all',
         children: [{
-            path: '/earlyWarning/all',
+            path: 'all',
             name: 'all',
             component: All,
         }, {
-            path: '/earlyWarning/morningpeak',
+            path: 'morningpeak',
             name: 'morningPeak',
             component: MorningPeak,
         }, {
-            path: '/earlyWarning/eveningpeak',
+            path: 'eveningpeak',
             name: 'eveningPeak',
             component: EveningPeak,
         }, {
-            path: '/earlyWarning/flatpeak',
+            path: 'flatpeak',
             name: 'flatPeak',
             component: FlatPeak,
         }, {
-            path: '/earlyWarning/night',
+            path: 'night',
             name: 'night',
             component: Night,
         }]
@@ -89,100 +89,118 @@ export const RouterList = [{
         path: '/historyWarning',
         name: 'historyWarning',
         component: HistoryWarning,
-        redirect: '/historyWarning/yesterday',
+        meta:{name:'yesterday'},
         children: [{
-            path: '/historyWarning/yesterday',
+            path: 'yesterday',
             name: 'yesterday',
             component: Yesterday,
             redirect: '/historyWarning/yesterday/historyspread',
             children: [{
-                path: '/historyWarning/yesterday/historyspread',
-                name: 'historySpread',
+                path: 'historyspread',
+                name: 'yesterday-historySpread',
                 component: HistorySpread,
+                meta:{name:'yesterday'},
             }, {
-                path: '/historyWarning/yesterday/historyhigharea',
-                name: 'historyHighArea',
+                path: 'historyhigharea',
+                name: 'yesterday-historyHighArea',
                 component: HistoryHighArea,
+                meta:{name:'yesterday'},
             }, {
-                path: '/historyWarning/yesterday/historyhighroad',
-                name: 'historyHighRoad',
+                path: 'historyhighroad',
+                name: 'yesterday-historyHighRoad',
                 component: HistoryHighRoad,
+                meta:{name:'yesterday'},
             }, {
-                path: '/historyWarning/yesterday/historyhighcrossing',
-                name: 'historyHighCrossing',
+                path: 'historyhighcrossing',
+                name: 'yesterday-historyHighCrossing',
                 component: HistoryHighCrossing,
+                meta:{name:'yesterday'},
             }, {
-                path: '/historyWarning/yesterday/weather',
-                name: 'weather',
+                path: 'weather',
+                name: 'yesterday-weather',
                 component: Weather,
+                meta:{name:'yesterday'},
             }, {
-                path: '/historyWarning/yesterday/vehicle',
-                name: 'vehicle',
+                path: 'vehicle',
+                name: 'yesterday-vehicle',
                 component: Vehicle,
+                meta:{name:'yesterday'},
             }]
         }, {
-            path: '/historyWarning/lastweek',
+            path: 'lastweek',
             name: 'lastWeek',
             component: LastWeek,
             redirect: '/historyWarning/lastweek/historyspread',
+            meta:{name:'lastWeek'},
             children: [{
-                path: '/historyWarning/lastweek/historyspread',
-                name: 'historySpread',
+                path: 'historyspread',
+                name: 'lastWeek-historySpread',
                 component: HistorySpread,
+                meta:{name:'lastWeek'},
             }, {
-                path: '/historyWarning/lastweek/historyhigharea',
-                name: 'historyHighArea',
+                path: 'historyhigharea',
+                name: 'lastWeek-historyHighArea',
                 component: HistoryHighArea,
+                meta:{name:'lastWeek'},
             }, {
-                path: '/historyWarning/lastweek/historyhighroad',
-                name: 'historyHighRoad',
+                path: 'historyhighroad',
+                name: 'lastWeek-historyHighRoad',
                 component: HistoryHighRoad,
+                meta:{name:'lastWeek'},
             }, {
-                path: '/historyWarning/lastweek/historyhighcrossing',
-                name: 'historyHighCrossing',
+                path: 'historyhighcrossing',
+                name: 'lastWeek-historyHighCrossing',
                 component: HistoryHighCrossing,
+                meta:{name:'lastWeek'},
             }, {
-                path: '/historyWarning/lastweek/weather',
-                name: 'weather',
+                path: 'weather',
+                name: 'lastWeek-weather',
                 component: Weather,
+                meta:{name:'lastWeek'},
             }, {
-                path: '/historyWarning/lastweek/vehicle',
-                name: 'vehicle',
+                path: 'vehicle',
+                name: 'lastWeek-vehicle',
                 component: Vehicle,
+                meta:{name:'lastWeek'},
             }]
         }, {
-            path: '/historyWarning/lastmonth',
+            path: 'lastmonth',
             name: 'lastMonth',
             component: LastMonth,
             redirect: '/historyWarning/lastmonth/historyspread',
+            meta:{name:'lastMonth'},
             children: [{
-                path: '/historyWarning/lastmonth/historyspread',
-                name: 'historySpread',
+                path: 'historyspread',
+                name: 'lastMonth-historySpread',
                 component: HistorySpread,
+                meta:{name:'lastMonth'},
             }, {
-                path: '/historyWarning/lastmonth/historyhigharea',
-                name: 'historyHighArea',
+                path: 'historyhigharea',
+                name: 'lastMonth--historyHighArea',
                 component: HistoryHighArea,
+                meta:{name:'lastMonth'},
             }, {
-                path: '/historyWarning/lastmonth/historyhighroad',
-                name: 'historyHighRoad',
+                path: 'historyhighroad',
+                name: 'lastMonth-historyHighRoad',
                 component: HistoryHighRoad,
             }, {
-                path: '/historyWarning/lastmonth/historyhighcrossing',
-                name: 'historyHighCrossing',
+                path: 'historyhighcrossing',
+                name: 'lastMonth-historyHighCrossing',
                 component: HistoryHighCrossing,
             }, {
-                path: '/historyWarning/lastmonth/weather',
-                name: 'weather',
+                path: 'weather',
+                name: 'lastMonth-weather',
                 component: Weather,
+                meta:{name:'lastMonth'},
             }, {
-                path: '/historyWarning/lastmonth/vehicle',
-                name: 'vehicle',
+                path: 'vehicle',
+                name: 'lastMonth-vehicle',
                 component: Vehicle,
+                meta:{name:'lastMonth'},
             }]
         }]
     }
-]
+];
 
 export default new Router({
     routes: RouterList,
