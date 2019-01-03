@@ -1,0 +1,13 @@
+@font-face {
+    font-family: 'GOTHICB';
+    src: url('../font/GOTHICB.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'PingFang';
+    src: url('../font/PingFangBold.otf');
+    font-weight: normal;
+    font-style: normal;
+}
